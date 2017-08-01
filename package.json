@@ -7,12 +7,14 @@
     "babel:use-babel-runtime": "babel ./use-babel-runtime/use-import.js -o ./use-babel-runtime/dist/use-import.js && babel ./use-babel-runtime/not-import.js -o ./use-babel-runtime/dist/not-import.js",
     "babel:use-babel-polyfill": "babel ./use-babel-polyfill/src.js -o ./use-babel-polyfill/dist.js",
     "babel:use-promise-polyfill": "babel ./use-promise-polyfill/src.js -o ./use-promise-polyfill/dist.js",
+    "babel:use-babel-runtime-with-other-polyfill": "babel ./use-babel-runtime-with-other-polyfill/src.js -o ./use-babel-runtime-with-other-polyfill/dist.js",
     "yarn-check": "node -e \"if(process.env.npm_execpath.indexOf('yarn') === -1) throw new Error('You must use Yarn to install, not NPM')\"",
-    "build:babel": "npm run babel:use-babel-runtime && npm run babel:use-babel-polyfill && npm run babel:use-promise-polyfill",
+    "build:babel": "npm run babel:use-babel-runtime && npm run babel:use-babel-polyfill && npm run babel:use-promise-polyfill && npm run babel:use-babel-runtime-with-other-polyfill",
     "webpack:use-babel-polyfill": "webpack --entry ./use-babel-polyfill/src.js  --output-path ./use-babel-polyfill --output-filename dist.bundle.js",
     "webpack:use-babel-runtime": "webpack --entry ./use-babel-runtime/not-import.js  --output-path ./use-babel-runtime/dist --output-filename not-import.bundle.js && webpack --entry ./use-babel-runtime/use-import.js  --output-path ./use-babel-runtime/dist --output-filename use-import.bundle.js",
     "webpack:use-promise-polyfill": "webpack --entry ./use-promise-polyfill/src.js  --output-path ./use-promise-polyfill --output-filename dist.bundle.js",
-    "build:webpack": "npm run webpack:use-babel-runtime && npm run webpack:use-babel-polyfill && npm run webpack:use-promise-polyfill"
+    "webpack:use-babel-runtime-with-other-polyfill": "webpack --entry ./use-babel-runtime-with-other-polyfill/src.js  --output-path ./use-babel-runtime-with-other-polyfill --output-filename dist.bundle.js",
+    "build:webpack": "npm run webpack:use-babel-runtime && npm run webpack:use-babel-polyfill && npm run webpack:use-promise-polyfill && npm run webpack:use-babel-runtime-with-other-polyfill"
   },
   "dependencies": {
     "babel-polyfill": "^6.23.0",
