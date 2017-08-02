@@ -11,8 +11,13 @@ promiseTest.then((value) => {
 
 console.log('outer promise'); // 2
 
-const arrayFindTest = Array.findIndex([1, 2, 3], ((i) => (
-  i === 5
-)));
+// babel-runtime/helpers
+class A {
+}
 
-console.log(`arrayFindTest ${(arrayFindTest < 0) ? 'not find' : 'find'} 5.`);
+class B extends A {
+  constructor(props) {
+    super(props);
+  }
+}
+

@@ -1,12 +1,9 @@
-'use strict';
+import _possibleConstructorReturn from 'babel-runtime/helpers/possibleConstructorReturn';
+import _inherits from 'babel-runtime/helpers/inherits';
+import _classCallCheck from 'babel-runtime/helpers/classCallCheck';
+import Promise from 'promise-polyfill';
 
-var _promisePolyfill = require('promise-polyfill');
-
-var _promisePolyfill2 = _interopRequireDefault(_promisePolyfill);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var promiseTest = new _promisePolyfill2.default(function (resolve) {
+var promiseTest = new Promise(function (resolve) {
   console.log('inner promise');
   resolve('console in resolve');
 });
@@ -16,9 +13,18 @@ promiseTest.then(function (value) {
 });
 
 console.log('outer promise');
+var A = function A() {
+  _classCallCheck(this, A);
+};
 
-var arrayFindTest = Array.findIndex([1, 2, 3], function (i) {
-  return i === 5;
-});
+var B = function (_A) {
+  _inherits(B, _A);
 
-console.log('arrayFindTest ' + (arrayFindTest < 0 ? 'not find' : 'find') + ' 5.');
+  function B(props) {
+    _classCallCheck(this, B);
+
+    return _possibleConstructorReturn(this, (B.__proto__ || Object.getPrototypeOf(B)).call(this, props));
+  }
+
+  return B;
+}(A);
