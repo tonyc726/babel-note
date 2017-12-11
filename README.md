@@ -1,4 +1,4 @@
-# 《[Babel笔记](https://itony.net/babel-note/)》的实验室
+# 《[Babel笔记](https://itony.net/post/babel-note.html)》的实验室
 
 本项目用于测试Babel各种配置的运行结果，同时结合webpack测试一下输出的结果，下面就几个总结一下：
 
