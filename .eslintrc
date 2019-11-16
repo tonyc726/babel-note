@@ -10,7 +10,6 @@
   },
   "plugins": [
   ],
-  "format": "eslint-friendly-formatter",
   "parserOptions": {
     "ecmaVersion": 6,
     "sourceType": "module"

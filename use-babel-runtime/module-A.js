@@ -25,6 +25,7 @@ const objectC = Object.assign({}, objectA, objectB);
 const objectD = {
   xx: 9,
   ...objectC,
+  z: 5,
 };
 
 console.log(`objectA:

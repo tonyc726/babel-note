@@ -16,28 +16,26 @@
     "webpack:use-promise-polyfill": "webpack --entry ./use-promise-polyfill/src.js  --output-path ./use-promise-polyfill --output-filename dist.bundle.js",
     "webpack:use-babel-runtime-with-other-polyfill": "webpack --entry ./use-babel-runtime-with-other-polyfill/src.js  --output-path ./use-babel-runtime-with-other-polyfill --output-filename dist.bundle.js",
     "webpack:without-babel-runtime": "webpack --entry ./without-babel-runtime/use-import.js  --output-path ./without-babel-runtime/dist --output-filename use-import.bundle.js",
+    "webpack:modules-diff": "webpack --entry ./modules-diff/use-babel/index.js  --output-path ./modules-diff/dist --output-filename use-babel.js && webpack --entry ./modules-diff/use-webpack/index.js  --output-path ./modules-diff/dist --output-filename use-webpack.js",
     "build:webpack": "npm run webpack:use-babel-runtime && npm run webpack:use-babel-polyfill && npm run webpack:use-promise-polyfill && npm run webpack:use-babel-runtime-with-other-polyfill && npm run webpack:without-babel-runtime"
   },
   "dependencies": {
-    "babel-polyfill": "^6.23.0",
-    "babel-runtime": "^6.25.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-runtime": "^6.26.0",
     "promise-polyfill": "^6.0.2"
   },
   "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-core": "^6.25.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
     "babel-eslint": "^7.2.3",
-    "babel-loader": "^7.1.1",
+    "babel-loader": "^7.1.2",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.5.2",
     "babel-preset-stage-0": "^6.24.1",
-    "eslint": "^3.19.0",
-    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint": "^4.5.0",
+    "eslint-config-airbnb-base": "^11.3.2",
     "eslint-friendly-formatter": "^3.0.0",
     "eslint-plugin-import": "^v2.7.0",
-    "webpack": "^3.4.1"
-  },
-  "engines": {
-    "node": "^6.x"
+    "webpack": "^3.5.5"
   }
 }
