@@ -11,11 +11,9 @@ var _default = function _default(list) {
       reject(new Error('list is invalided.'));
     }
 
-    setTimeout(function () {
-      resolve(list.map(function (val, index) {
-        return "[" + (index + 1) + "/" + list.length + "]: " + JSON.stringify(val);
-      }));
-    }, 1000);
+    resolve(list.map(function (val, index) {
+      return "[" + (index + 1) + "/" + list.length + "]: " + JSON.stringify(val);
+    }));
   });
 };
 

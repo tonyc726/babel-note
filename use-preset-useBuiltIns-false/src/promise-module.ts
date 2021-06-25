@@ -3,7 +3,5 @@ export default (list: Array<string>) =>
     if (list?.length === 0) {
       reject(new Error('list is invalided.'));
     }
-    setTimeout(() => {
-      resolve(list.map((val, index) => `[${index + 1}/${list.length}]: ${JSON.stringify(val)}`));
-    }, 1000);
+    resolve(list.map((val, index) => `[${index + 1}/${list.length}]: ${JSON.stringify(val)}`));
   });
