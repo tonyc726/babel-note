@@ -1,8 +1,12 @@
-import 'core-js/stable';
+import 'core-js';
 import 'regenerator-runtime/runtime';
 
-import loopList from './loopList';
+import promiseModule from './promise-module';
 
-(async () => {
-  await loopList(['a', 'b', 'c']);
-})();
+//
+promiseModule(['a', 'b', 'c']).then((val) => {
+  console.log(JSON.stringify(val, null, 2));
+});
+
+//
+Array(10).fill('test');

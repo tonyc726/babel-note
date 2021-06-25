@@ -7,9 +7,9 @@
     /* Specify library files to be included in the compilation. */
     "lib": ["ESNext", "DOM"],
     /* Specify JSX code generation */
-    "jsx": "react",
+    // "jsx": "react",
     /* Generate corresponding .map files */
-    "sourceMap": true,
+    // "sourceMap": true,
     /* Enable all strict type-checking options */
     "strict": true,
     /* Specify module resolution strategy */
@@ -25,7 +25,8 @@
     /* allow import React instead of import * as React */
     "allowSyntheticDefaultImports": true,
     /*  Emit interop between CommonJS and ES modules */
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "outDir": "./esm"
   },
   "include": ["src/**/*"]
 }

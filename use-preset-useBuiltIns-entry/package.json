@@ -4,8 +4,11 @@
   "description": "",
   "private": true,
   "scripts": {
-    "build": "webpack -c ./webpack.config.js",
-    "compile": "npx babel ./src --out-dir ./lib"
+    "esm": "npx tsc",
+    "prelib": "npm run esm",
+    "lib": "npx babel ./esm --out-dir ./lib --config-file ./.babelrc",
+    "dist": "npx webpack -c ./webpack.config.js",
+    "build": "npm run lib & npm run dist"
   },
   "author": "",
   "license": "ISC",
