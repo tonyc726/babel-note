@@ -534,11 +534,14 @@ require("regenerator-runtime/runtime");
 
 var _promiseModule = _interopRequireDefault(require("./promise-module"));
 
+var _printInBrowser = _interopRequireDefault(require("./print-in-browser"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//
-(0, _promiseModule.default)(['a', 'b', 'c']).then(function (val) {
-  console.log(JSON.stringify(val, null, 2));
-}); //
+(0, _printInBrowser.default)('THIS IS TEST FOR use-preset-useBuiltIns-entry', 'h1'); // TEST Promise
 
-Array(10).fill('test');
+(0, _promiseModule.default)(['a', 'b', 'c']).then(function (val) {
+  (0, _printInBrowser.default)(JSON.stringify(val, null, 2));
+}); // TEST Array.fill
+
+(0, _printInBrowser.default)(JSON.stringify(Array(5).fill('useBuiltIns-entry'), null, 2));

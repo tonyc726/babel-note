@@ -41,6 +41,25 @@
 }
 ```
 
+## webpack 结果
+
+```bash
+When setting `useBuiltIns: 'usage'`, polyfills are automatically imported when needed.
+Please remove the direct import of `core-js` or use `useBuiltIns: 'entry'` instead.
+
+asset main.js 581 KiB [emitted] [big] (name: main)
+orphan modules 882 bytes [orphan] 2 modules
+runtime modules 500 bytes 2 modules
+modules by path ./node_modules/core-js/modules/*.js 330 KiB 362 modules
+modules by path ./node_modules/core-js/internals/*.js 174 KiB 188 modules
+./src/index.ts + 2 modules 1.32 KiB [built] [code generated]
+./node_modules/core-js/index.js 40 bytes [built] [code generated]
+./node_modules/regenerator-runtime/runtime.js 24 KiB [built] [code generated]
+./node_modules/core-js/features/index.js 15.6 KiB [built] [code generated]
+
+webpack 5.40.0 compiled with 3 warnings in 2439 ms
+```
+
 ## browserslist 特殊说明
 
 如果在`browserslist`相关的配置中，使用了例如`last 2 versions`或者`>1%`这样的配置时，需要保持`caniuse-lite`数据的最新状态，可以通过以下命令完成升级工作：

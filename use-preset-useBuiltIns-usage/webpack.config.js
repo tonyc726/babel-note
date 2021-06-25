@@ -5,6 +5,10 @@ module.exports = {
   mode: 'production',
   entry: './src/index.ts',
   output: {
+    library: {
+      name: '__babel_use-preset-usebuiltins-usage__',
+      type: 'umd',
+    },
     filename: 'main.js',
     chunkFilename: '[name]_[id].js',
     path: path.resolve(__dirname, 'dist'),
