@@ -2,10 +2,11 @@
 const path = require('path');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: './src/index.ts',
   output: {
     filename: 'main.js',
+    chunkFilename: '[name]_[id].js',
     path: path.resolve(__dirname, 'dist'),
   },
   module: {
@@ -18,5 +19,8 @@ module.exports = {
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
+  },
+  optimization: {
+    minimize: false,
   },
 };
