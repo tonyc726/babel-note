@@ -128,4 +128,5 @@ webpack 5.40.0 compiled successfully in 1647 ms
 - https://babeljs.io/docs/en/babel-preset-env
 - https://babeljs.io/docs/en/babel-polyfill
 - https://babeljs.io/docs/en/babel-plugin-transform-runtime
+- https://cli.vuejs.org/zh/guide/browser-compatibility.html
 - https://segmentfault.com/a/1190000020237817
