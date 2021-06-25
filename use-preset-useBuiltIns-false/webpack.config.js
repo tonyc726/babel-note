@@ -6,7 +6,7 @@ module.exports = {
   entry: './src/index.ts',
   output: {
     library: {
-      name: '__babel_use-preset-usebuiltins-entry__',
+      name: '__babel_use-preset-usebuiltins-false__',
       type: 'umd',
     },
     filename: 'main.js',

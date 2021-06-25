@@ -19,7 +19,9 @@
 >
 > ⚠ 务必确保在所有其他代码/要求语句之前调用它！
 
-如果使用 `useBuiltIns: 'entry'` 指定在.babelrc 配置文件中，
+如果使用 `useBuiltIns: 'usage'` 指定在.babelrc 配置文件中，但是不需要在入口文件或者`webpack.config.js`中包含条目数组或源中。
+
+> ⚠ 注意，**_`@babel/polyfill`_** `core-js`仍然需要安装。
 
 ```json
 {
@@ -30,7 +32,7 @@
         "targets": {
           "ie": "11"
         },
-        "useBuiltIns": "entry", // <<< polyfill 配置
+        "useBuiltIns": "usage", // <<< polyfill 配置
         "corejs": "3" // <<< 声明对应`corejs`的版本
       }
     ],
@@ -39,27 +41,20 @@
 }
 ```
 
-打包入口文件
-
-```typescript
-import 'core-js';
-import 'regenerator-runtime/runtime';
-
-// ...
-```
-
 ## webpack 结果
 
 ```bash
-asset main.js 520 KiB [emitted] [big] (name: main)
+asset main.js 581 KiB [emitted] [big] (name: main)
 orphan modules 706 bytes [orphan] 2 modules
 runtime modules 500 bytes 2 modules
-modules by path ./node_modules/core-js/modules/*.js 273 KiB 271 modules
-modules by path ./node_modules/core-js/internals/*.js 157 KiB 176 modules
-./src/index.ts + 2 modules 13.9 KiB [built] [code generated]
+modules by path ./node_modules/core-js/modules/*.js 330 KiB 362 modules
+modules by path ./node_modules/core-js/internals/*.js 174 KiB 188 modules
+./src/index.ts + 2 modules 1.11 KiB [built] [code generated]
+./node_modules/core-js/index.js 40 bytes [built] [code generated]
 ./node_modules/regenerator-runtime/runtime.js 24 KiB [built] [code generated]
+./node_modules/core-js/features/index.js 15.6 KiB [built] [code generated]
 
-webpack 5.40.0 compiled with 3 warnings in 2460 ms
+webpack 5.40.0 compiled with 3 warnings in 2890 ms
 ```
 
 ## browserslist 特殊说明

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>测试页面</title>
+  </head>
+  <body>
+    <div id="entry-buttons">
+      <button id="use-preset-useBuiltIns-entry">test-useBuiltIns-entry</button>
+      <br />
+      <br />
+      <button id="use-preset-useBuiltIns-usage">test-useBuiltIns-usage</button>
+      <br />
+      <br />
+      <button id="use-preset-useBuiltIns-false">test-useBuiltIns-false</button>
+    </div>
+    <script>
+      (function () {
+        var isLoading = false;
+        var currentTestModuleScriptId = "";
+        function loadScript(scriptUrl) {
+          if (isLoading) {
+            return;
+          }
+          isLoading = true;
+          var script = document.createElement("script");
+          currentTestModuleScriptId = +new Date() + "";
+          script.id = currentTestModuleScriptId;
+          script.onload = function () {
+            //do stuff with the script
+            setTimeout(function () {
+              isLoading = false;
+            }, 2000);
+          };
+          script.src = scriptUrl;
+          document.head.appendChild(script); //or something of the likes
+        }
+        function cleanPrevTestModuleScript() {
+          if (currentTestModuleScriptId.length === 0) {
+            return;
+          }
+          var prevTestModuleScriptElement = document.getElementById(
+            currentTestModuleScriptId
+          );
+          if (prevTestModuleScriptElement) {
+            prevTestModuleScriptElement.remove();
+          }
+        }
+        function cleanPrevTestModuleResult() {
+          var titleElements = document.getElementsByTagName("h1");
+          if (titleElements) {
+            titleElements = Array.prototype.slice.call(titleElements);
+            if (titleElements.length !== 0) {
+              for (var i = 0; i < titleElements.length; i++) {
+                titleElements[i].remove();
+              }
+            }
+          }
+
+          var preElements = document.getElementsByTagName("pre");
+          if (preElements) {
+            preElements = Array.prototype.slice.call(preElements);
+            if (preElements.length !== 0) {
+              for (var x = 0; x < preElements.length; x++) {
+                preElements[x].remove();
+              }
+            }
+          }
+        }
+
+        document
+          .getElementById("entry-buttons")
+          .addEventListener("click", function (e) {
+            if (isLoading) {
+              console.log("please wait prev test completed");
+              return;
+            }
+            cleanPrevTestModuleScript();
+            cleanPrevTestModuleResult();
+            loadScript("./" + e.target.id + "/dist/main.js");
+          });
+      })();
+    </script>
+  </body>
+</html>
