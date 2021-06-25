@@ -122,3 +122,10 @@ modules by path ./node_modules/core-js-pure/features/ 591 bytes
 
 webpack 5.40.0 compiled successfully in 1647 ms
 ```
+
+## 参考文献
+
+- https://babeljs.io/docs/en/babel-preset-env
+- https://babeljs.io/docs/en/babel-polyfill
+- https://babeljs.io/docs/en/babel-plugin-transform-runtime
+- https://segmentfault.com/a/1190000020237817
