@@ -71,9 +71,9 @@ webpack 5.40.0 compiled with 3 warnings in 2890 ms
 ### webpack 结果
 
 ```bash
-asset main.js 104 KiB [emitted] (name: main)
+asset main.js 104 KiB [compared for emit] (name: main)
 runtime modules 1.19 KiB 5 modules
-orphan modules 1.12 KiB [orphan] 2 modules
+orphan modules 1.07 KiB [orphan] 2 modules
 modules by path ./node_modules/core-js-pure/internals/*.js 57.9 KiB 93 modules
 modules by path ./node_modules/core-js-pure/modules/*.js 29.2 KiB 17 modules
 modules by path ./node_modules/core-js-pure/es/ 1.97 KiB 8 modules
@@ -85,7 +85,7 @@ modules by path ./node_modules/core-js-pure/features/ 591 bytes
   modules by path ./node_modules/core-js-pure/features/instance/*.js 223 bytes 3 modules
   ./node_modules/core-js-pure/features/json/stringify.js 75 bytes [built] [code generated]
   ./node_modules/core-js-pure/features/promise/index.js 293 bytes [built] [code generated]
-./src/index.ts + 2 modules 1.71 KiB [built] [code generated]
+./src/index.ts + 2 modules 1.68 KiB [built] [code generated]
 
-webpack 5.40.0 compiled successfully in 2565 ms
+webpack 5.40.0 compiled successfully in 1647 ms
 ```
