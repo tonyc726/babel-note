@@ -8,8 +8,8 @@
 > 🚨 从 Babel 7.4.0 开始，这个包(`@babel/polyfill`)已经被弃用，以支持直接包含`core-js/stable`（以 polyfill ECMAScript 功能）和`regenerator-runtime/runtime`（需要使用转译的生成器函数）：
 >
 > ```javascript
-> import "core-js/stable";
-> import "regenerator-runtime/runtime";
+> import 'core-js/stable';
+> import 'regenerator-runtime/runtime';
 > ```
 
 - 测试使用`@babel/preset-env` 组合 `core-js@3`、`regenerator-runtime` 中不同配置模式下，处理`polyfill`的方法与结果；
@@ -129,4 +129,5 @@ webpack 5.40.0 compiled successfully in 1647 ms
 - https://babeljs.io/docs/en/babel-polyfill
 - https://babeljs.io/docs/en/babel-plugin-transform-runtime
 - https://cli.vuejs.org/zh/guide/browser-compatibility.html
+- https://awdr74100.github.io/2020-03-16-webpack-babelloader/
 - https://segmentfault.com/a/1190000020237817
