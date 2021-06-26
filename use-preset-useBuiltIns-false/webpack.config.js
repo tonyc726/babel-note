@@ -1,30 +1,52 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 const path = require('path');
+const fs = require('fs');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   mode: 'production',
-  entry: './src/index.ts',
+  entry: path.resolve(__dirname, './src/index.ts'),
   output: {
     library: {
       name: '__babel_use-preset-usebuiltins-false__',
       type: 'umd',
     },
-    filename: 'main.js',
-    chunkFilename: '[name]_[id].js',
-    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].js',
+    path: process.env.NODE_ENV === 'analyze' ? path.resolve(__dirname, 'analyze') : path.resolve(__dirname, 'dist'),
   },
   module: {
     rules: [
       {
         test: /.tsx?$/,
-        use: [{ loader: 'babel-loader' }],
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              ...JSON.parse(fs.readFileSync(path.resolve(__dirname, '.babelrc'))),
+            },
+          },
+        ],
       },
     ],
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
-  optimization: {
-    minimize: false,
-  },
+  optimization:
+    process.env.NODE_ENV === 'analyze'
+      ? {
+          minimize: false,
+          splitChunks: {
+            chunks: 'all',
+            cacheGroups: {
+              vendors: {
+                test: /[\\/]node_modules[\\/]/,
+                priority: -10,
+                filename: 'vendors.js',
+              },
+            },
+          },
+        }
+      : { minimize: false },
+  plugins: process.env.NODE_ENV === 'analyze' ? [new BundleAnalyzerPlugin()] : [],
 };
