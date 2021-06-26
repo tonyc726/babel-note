@@ -1,0 +1,70 @@
+{
+  "name": "babel-note",
+  "version": "7.0.0",
+  "description": "babel7笔记📒",
+  "private": true,
+  "scripts": {
+    "preesm": "npx tsc -b --clean --dry ./use-babel-plugin-transform-runtime ./use-preset-useBuiltIns-entry ./use-preset-useBuiltIns-usage ./use-preset-useBuiltIns-false",
+    "esm": "npx tsc -b ./use-babel-plugin-transform-runtime ./use-preset-useBuiltIns-entry ./use-preset-useBuiltIns-usage ./use-preset-useBuiltIns-false",
+    "prelib:transform-runtime": "rimraf ./use-babel-plugin-transform-runtime/lib/*.js",
+    "lib:transform-runtime": "npx babel ./use-babel-plugin-transform-runtime/esm --out-dir ./use-babel-plugin-transform-runtime/lib --config-file ./use-babel-plugin-transform-runtime/.babelrc --verbose",
+    "predist:transform-runtime": "rimraf ./use-babel-plugin-transform-runtime/dist/*.js",
+    "dist:transform-runtime": "cross-env NODE_ENV=production npx webpack -c ./use-babel-plugin-transform-runtime/webpack.config.js --progress",
+    "preanalyze:transform-runtime": "rimraf ./use-babel-plugin-transform-runtime/analyze/*.js",
+    "analyze:transform-runtime": "cross-env NODE_ENV=analyze npx webpack -c ./use-babel-plugin-transform-runtime/webpack.config.js",
+    "prelib:useBuiltIns-entry": "rimraf ./use-preset-useBuiltIns-entry/lib/*.js",
+    "lib:useBuiltIns-entry": "npx babel ./use-preset-useBuiltIns-entry/esm --out-dir ./use-preset-useBuiltIns-entry/lib --config-file ./use-preset-useBuiltIns-entry/.babelrc --verbose",
+    "predist:useBuiltIns-entry": "rimraf ./use-preset-useBuiltIns-entry/dist/*.js",
+    "dist:useBuiltIns-entry": "cross-env NODE_ENV=production npx webpack -c ./use-preset-useBuiltIns-entry/webpack.config.js --progress",
+    "preanalyze:useBuiltIns-entry": "rimraf ./use-preset-useBuiltIns-entry/analyze/*.js",
+    "analyze:useBuiltIns-entry": "cross-env NODE_ENV=analyze npx webpack -c ./use-preset-useBuiltIns-entry/webpack.config.js",
+    "prelib:useBuiltIns-false": "rimraf ./use-preset-useBuiltIns-false/lib/*.js",
+    "lib:useBuiltIns-false": "npx babel ./use-preset-useBuiltIns-false/esm --out-dir ./use-preset-useBuiltIns-false/lib --config-file ./use-preset-useBuiltIns-false/.babelrc --verbose",
+    "predist:useBuiltIns-false": "rimraf ./use-preset-useBuiltIns-false/dist/*.js",
+    "dist:useBuiltIns-false": "cross-env NODE_ENV=production npx webpack -c ./use-preset-useBuiltIns-false/webpack.config.js --progress",
+    "preanalyze:useBuiltIns-false": "rimraf ./use-preset-useBuiltIns-false/analyze/*.js",
+    "analyze:useBuiltIns-false": "cross-env NODE_ENV=analyze npx webpack -c ./use-preset-useBuiltIns-false/webpack.config.js",
+    "prelib:useBuiltIns-usage": "rimraf ./use-preset-useBuiltIns-usage/lib/*.js",
+    "lib:useBuiltIns-usage": "npx babel ./use-preset-useBuiltIns-usage/esm --out-dir ./use-preset-useBuiltIns-usage/lib --config-file ./use-preset-useBuiltIns-usage/.babelrc --verbose",
+    "predist:useBuiltIns-usage": "rimraf ./use-preset-useBuiltIns-usage/dist/*.js",
+    "dist:useBuiltIns-usage": "cross-env NODE_ENV=production npx webpack -c ./use-preset-useBuiltIns-usage/webpack.config.js --progress",
+    "preanalyze:useBuiltIns-usage": "rimraf ./use-preset-useBuiltIns-usage/analyze/*.js",
+    "analyze:useBuiltIns-usage": "cross-env NODE_ENV=analyze npx webpack -c ./use-preset-useBuiltIns-usage/webpack.config.js",
+    "prebuild": "npm run esm",
+    "build": "npm run lib:transform-runtime & npm run dist:transform-runtime & npm run lib:useBuiltIns-entry & npm run dist:useBuiltIns-entry & npm run lib:useBuiltIns-false & npm run dist:useBuiltIns-false & npm run lib:useBuiltIns-usage & npm run dist:useBuiltIns-usage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tonyc726/babel-note.git"
+  },
+  "keywords": [],
+  "author": "tonyc726",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tonyc726/babel-note/issues"
+  },
+  "homepage": "https://github.com/tonyc726/babel-note#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.14.5",
+    "@babel/core": "^7.14.6",
+    "@babel/plugin-transform-runtime": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/preset-typescript": "^7.14.5",
+    "@babel/runtime-corejs3": "^7.14.7",
+    "@typescript-eslint/eslint-plugin": "^4.28.0",
+    "@typescript-eslint/parser": "^4.28.0",
+    "babel-loader": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.29.0",
+    "eslint-config-alloy": "^4.1.0",
+    "prettier": "^2.3.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.3.4",
+    "webpack": "^5.40.0",
+    "webpack-bundle-analyzer": "^4.4.2",
+    "webpack-cli": "^4.7.2"
+  },
+  "dependencies": {
+    "core-js": "^3.15.1"
+  }
+}
